@@ -9,8 +9,8 @@ import { cwd } from 'node:process';
 
 const compareObjects = (obj1, obj2) => {
   const resultObj = {};
-  const keysOfObj1 = Object.keys(obj1).sort();
-  const keysOfObj2 = Object.keys(obj2).sort();
+  const keysOfObj1 = Object.keys(obj1);
+  const keysOfObj2 = Object.keys(obj2);
   const allKeys = _.uniq(keysOfObj1.concat(keysOfObj2).sort());
 
   for (const key of allKeys) {
@@ -33,13 +33,17 @@ const compareObjects = (obj1, obj2) => {
 };
 
 export const generateDifferencesJSON = (filepath1, filepath2) => {
-  const fileContent1 = fs.readFileSync(path.resolve(process.cwd(), filepath1));
-  const fileContent2 = fs.readFileSync(path.resolve(process.cwd(), filepath2));
-  
-  const obj1 = JSON.parse(fileContent1);
-  const obj2 = JSON.parse(fileContent2);
+  if ((getExtension(filepath1) === 'json') && (getExtension(filepath2) === 'json')) {
+    const fileContent1 = fs.readFileSync(path.resolve(process.cwd(), filepath1));
+    const fileContent2 = fs.readFileSync(path.resolve(process.cwd(), filepath2));
+    
+    const obj1 = JSON.parse(fileContent1);
+    const obj2 = JSON.parse(fileContent2);
 
-  const resultOfComparingObjects = compareObjects(obj1, obj2);
+    const resultOfComparingObjects = compareObjects(obj1, obj2);
 
-  return JSON.stringify(resultOfComparingObjects, null, 2).replace(/["\,]/g, '');
+    return JSON.stringify(resultOfComparingObjects, null, 2).replace(/["\,]/g, '');
+  } else {
+    return 'not .JSON'
+  }
 };
