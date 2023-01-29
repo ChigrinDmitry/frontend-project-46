@@ -1,4 +1,8 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander';
+import _ from 'lodash';
+import { generateDifferencesJSON } from '../src/generateDifferences.js';
 const program = new Command();
 
 program
@@ -10,4 +14,9 @@ program
 program
   .option('-f, --format <type>', 'output format')
 
-program.parse(process.argv);
+program
+  .action((filepath1, filepath2) => {
+    console.log(generateDifferencesJSON(filepath1, filepath2));
+})
+
+program.parse(process.argv)
