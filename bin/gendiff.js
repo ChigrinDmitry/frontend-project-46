@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import _ from 'lodash';
-import { generateDifferencesJSON } from '../src/generateDifferences.js';
+import generateDifferencesJSON from '../src/generateDifferences.js';
 
 const program = new Command();
 

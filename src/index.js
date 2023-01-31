@@ -1,3 +1,4 @@
 // здесь собираю функции, которые универсальные
 
-export const getExtension = (fileName) => fileName.split('.').at(-1);
+const getExtension = (fileName) => fileName.split('.').at(-1);
+export default getExtension;

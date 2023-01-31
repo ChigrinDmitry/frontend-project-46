@@ -1,11 +1,7 @@
-// здесь описываю первую задачку
-
-import { log } from 'console';
 import * as fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
-import { cwd } from 'node:process';
-import { getExtension } from './index.js';
+import getExtension from './index.js';
 
 const compareObjects = (obj1, obj2) => {
   const resultObj = {};
@@ -13,7 +9,7 @@ const compareObjects = (obj1, obj2) => {
   const keysOfObj2 = Object.keys(obj2);
   const allKeys = _.uniq(keysOfObj1.concat(keysOfObj2).sort());
 
-  for (const key of allKeys) {
+  allKeys.forEach((key) => {
     if (keysOfObj1.includes(key) && keysOfObj2.includes(key)) {
       if (obj1[key] === obj2[key]) {
         resultObj[key] = obj1[key];
@@ -28,11 +24,11 @@ const compareObjects = (obj1, obj2) => {
     if (!keysOfObj2.includes(key)) {
       resultObj[`- ${key}`] = obj1[key];
     }
-  }
+  });
   return resultObj;
 };
 
-export const generateDifferencesJSON = (filepath1, filepath2) => {
+const generateDifferencesJSON = (filepath1, filepath2) => {
   if ((getExtension(filepath1) === 'json') && (getExtension(filepath2) === 'json')) {
     const fileContent1 = fs.readFileSync(path.resolve(process.cwd(), filepath1));
     const fileContent2 = fs.readFileSync(path.resolve(process.cwd(), filepath2));
@@ -42,7 +38,9 @@ export const generateDifferencesJSON = (filepath1, filepath2) => {
 
     const resultOfComparingObjects = compareObjects(obj1, obj2);
 
-    return JSON.stringify(resultOfComparingObjects, null, 2).replace(/["\,]/g, '');
+    return JSON.stringify(resultOfComparingObjects, null, 2).replace(/[",]/g, '');
   }
   return 'not .JSON';
 };
+
+export default generateDifferencesJSON;
