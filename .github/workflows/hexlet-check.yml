@@ -25,3 +25,9 @@ jobs:
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env: CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE }}
+        with:
+        coverageCommand: make test-coverage
+        debug: true
