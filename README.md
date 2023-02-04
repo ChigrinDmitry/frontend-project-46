@@ -7,5 +7,8 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e619035f5cef44b381e7/test_coverage)](https://codeclimate.com/github/ChigrinDmitry/frontend-project-46/test_coverage)
 
-ASCIINEMA - example of functionality
+ASCIINEMA - example of functionality (generating differrences between .json files)
 https://asciinema.org/a/jVheXZEAfVGCqxkJqZVMWCyZC
+
+ASCIINEMA - example of generating differrences between .yml files:
+https://asciinema.org/a/Nse4HcbjBKH3EgZYSKJw3ZpPC
