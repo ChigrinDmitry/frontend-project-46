@@ -1,0 +1,5 @@
+timeout: 100
+verbose: true
+host: hexlet.io
+action: run
+autor: John
