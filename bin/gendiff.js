@@ -21,7 +21,8 @@ program
     if ((getExtension(filepath1) === 'json') && (getExtension(filepath2) === 'json')) {
       console.log(generateDifferencesJSON(filepath1, filepath2));
     }
-    if ((getExtension(filepath1) === 'yaml') && (getExtension(filepath2) === 'yaml')) {
+    if (((getExtension(filepath1) === 'yaml') || (getExtension(filepath1) === 'yml'))
+    && ((getExtension(filepath2) === 'yaml') || (getExtension(filepath2) === 'yml'))) {
       console.log(generateDifferencesYAML(filepath1, filepath2));
     }
   });
