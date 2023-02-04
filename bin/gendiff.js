@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import generateDifferencesJSON from '../src/generateDifferences.js';
-import generateDifferencesYAML from '../src/generateDifferencesYML.js';
-import getExtension from '../src/index.js';
+import generateDifferences from '../src/generateDifferences.js';
 
 const program = new Command();
 
@@ -18,13 +16,7 @@ program
 
 program
   .action((filepath1, filepath2) => {
-    if ((getExtension(filepath1) === 'json') && (getExtension(filepath2) === 'json')) {
-      console.log(generateDifferencesJSON(filepath1, filepath2));
-    }
-    if (((getExtension(filepath1) === 'yaml') || (getExtension(filepath1) === 'yml'))
-    && ((getExtension(filepath2) === 'yaml') || (getExtension(filepath2) === 'yml'))) {
-      console.log(generateDifferencesYAML(filepath1, filepath2));
-    }
+    console.log(generateDifferences(filepath1, filepath2));
   });
 
 program.parse(process.argv);
