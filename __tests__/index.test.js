@@ -1,7 +1,8 @@
 import generateDifferences from '../src/generateDifferences.js';
 import stylish from '../formatters/stylish.js';
 // test('gendiff', () => {
-//   expect(generateDifferences('__tests__/__fixtures__/file-for-test-1.json', '__tests__/__fixtures__/file-for-test-2.json'))
+//   expect(generateDifferences('__tests__/__fixtures__/file-for-test-1.json',
+// '__tests__/__fixtures__/file-for-test-2.json'))
 //     .toEqual(`{
 //   + action: run
 //   - autor: somebody
@@ -16,7 +17,8 @@ import stylish from '../formatters/stylish.js';
 // });
 
 // test('gendiff', () => {
-//   expect(generateDifferences('__tests__/__fixtures__/file-for-test-1-yaml.yaml', '__tests__/__fixtures__/file-for-test-2-yaml.yaml'))
+//   expect(generateDifferences('__tests__/__fixtures__/file-for-test-1-yaml.yaml',
+// '__tests__/__fixtures__/file-for-test-2-yaml.yaml'))
 //     .toEqual(`{
 //   + action: run
 //   - autor: somebody
@@ -29,11 +31,12 @@ import stylish from '../formatters/stylish.js';
 //   + verbose: true
 // }`);
 // });
-
 test('gendiff', () => {
-  expect(stylish(generateDifferences('__tests__/__fixtures__/file1.json', '__tests__/__fixtures__/file2.json'), ' ', 4))
-    .toEqual(
-`{
+  expect(stylish(generateDifferences(
+    '__tests__/__fixtures__/file1.json',
+    '__tests__/__fixtures__/file2.json',
+  ), ' ', 4))
+    .toEqual(`{
     common: {
       + follow: false
         setting1: Value 1

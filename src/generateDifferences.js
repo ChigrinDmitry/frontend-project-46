@@ -2,7 +2,6 @@ import * as fs from 'fs';
 import path from 'path';
 import { compareObjects } from './index.js';
 import parse from './parsers.js';
-import stylish from '../formatters/stylish.js';
 
 const generateDifferences = (filepath1, filepath2) => {
   const fileContent1 = fs.readFileSync(path.resolve(process.cwd(), filepath1));
@@ -17,7 +16,3 @@ const generateDifferences = (filepath1, filepath2) => {
 };
 
 export default generateDifferences;
-
-// тестирум тут
-// let a = generateDifferences('__tests__/__fixtures__/file1.json', '__tests__/__fixtures__/file2.json');
-console.log(typeof(a))
