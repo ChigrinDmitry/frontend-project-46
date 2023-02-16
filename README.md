@@ -7,6 +7,9 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e619035f5cef44b381e7/test_coverage)](https://codeclimate.com/github/ChigrinDmitry/frontend-project-46/test_coverage)
 
+ASCIINEMA - example of functionality (generating differrences between .json and .yaml files with recursion)
+https://asciinema.org/a/kgHS5o3Wu8fBZQUGahdpnwjLh
+
 ASCIINEMA - example of functionality (generating differrences between .json files)
 https://asciinema.org/a/jVheXZEAfVGCqxkJqZVMWCyZC
 
