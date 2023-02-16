@@ -18,7 +18,9 @@ program
 program
   .action((filepath1, filepath2) => {
     const options = program.opts();
-    if (options.format === undefined) console.log(stylish(generateDifferences(filepath1, filepath2), ' ', 4));
+    if (options.format === undefined) {
+      console.log(stylish(generateDifferences(filepath1, filepath2), ' ', 4));
+    }
   });
 
 program.parse(process.argv);
