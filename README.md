@@ -18,3 +18,6 @@ https://asciinema.org/a/Nse4HcbjBKH3EgZYSKJw3ZpPC
 
 ASCIINEMA - example of plain formatter:
 https://asciinema.org/a/r5Y2Qi5V1ZtVpKC4YrIc5iFbs
+
+ASCIINEMA - example of JSON formatter:
+https://asciinema.org/a/N3xMWlRVoTQrQigBa3Ap4gulz

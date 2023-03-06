@@ -1,5 +1,6 @@
 import stylish from '../formatters/stylish.js';
 import plain from '../formatters/plain.js';
+import json from './json.js';
 import generateDifferences from '../src/generateDifferences.js';
 
 export const normalizeQuotes = (value) => {
@@ -12,5 +13,8 @@ export const diff = (filepath1, filepath2, formatName) => {
   }
   if (formatName === 'stylish') {
     return stylish(generateDifferences(filepath1, filepath2), ' ', 4);
+  }
+  if (formatName === 'json') {
+    return json(generateDifferences(filepath1, filepath2));
   }
 };
