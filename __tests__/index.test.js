@@ -1,6 +1,7 @@
 import generateDifferences from '../src/generateDifferences.js';
 import stylish from '../formatters/stylish.js';
 import plain from '../formatters/plain.js';
+import json from '../formatters/json.js';
 // test('gendiff', () => {
 //   expect(generateDifferences('__tests__/__fixtures__/file-for-test-1.json',
 // '__tests__/__fixtures__/file-for-test-2.json'))
@@ -151,3 +152,12 @@ Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`);
 });
+
+test('gendiff', () => {
+  expect(json(generateDifferences(
+    '__tests__/__fixtures__/file1.json',
+    '__tests__/__fixtures__/file2.json',
+  )))
+    .toEqual('{"common":{"+ follow":false,"  setting1":"Value 1","- setting2":200,"- setting3":true,"+ setting3":null,"+ setting4":"blah blah","+ setting5":{"key5":"value5"},"setting6":{"doge":{"- wow":"","+ wow":"so much"},"  key":"value","+ ops":"vops"}},"group1":{"- baz":"bas","+ baz":"bars","  foo":"bar","- nest":{"key":"value"},"+ nest":"str"},"- group2":{"abc":12345,"deep":{"id":45}},"+ group3":{"deep":{"id":{"number":45}},"fee":100500}}');
+  });
+  
