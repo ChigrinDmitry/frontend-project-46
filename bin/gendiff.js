@@ -4,6 +4,7 @@ import { Command } from 'commander';
 import stylish from '../formatters/stylish.js';
 import plain from '../formatters/plain.js';
 import generateDifferences from '../src/generateDifferences.js';
+import { diff } from '../formatters/index.js';
 
 const program = new Command();
 
@@ -19,12 +20,7 @@ program
 program
   .action((filepath1, filepath2) => {
     const options = program.opts();
-    if ((options.format === undefined) || (options.format === 'stylish')) {
-      console.log(stylish(generateDifferences(filepath1, filepath2), ' ', 4));
-    }
-    if (options.format === 'plain') {
-      console.log(plain(generateDifferences(filepath1, filepath2)));
-    }
+    console.log(diff(filepath1, filepath2, options.format))
   });
 
 program.parse(process.argv);
