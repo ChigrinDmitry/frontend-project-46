@@ -15,3 +15,6 @@ https://asciinema.org/a/jVheXZEAfVGCqxkJqZVMWCyZC
 
 ASCIINEMA - example of generating differrences between .yml files:
 https://asciinema.org/a/Nse4HcbjBKH3EgZYSKJw3ZpPC
+
+ASCIINEMA - example of plain formatter:
+https://asciinema.org/a/r5Y2Qi5V1ZtVpKC4YrIc5iFbs
