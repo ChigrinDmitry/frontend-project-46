@@ -3,7 +3,7 @@ import plain from './plain.js';
 import json from './json.js';
 import generateDifferences from '../src/generateDifferences.js';
 
-const genDiff = (filepath1, filepath2, formatName) => {
+const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   let result;
   if (formatName === 'plain') {
     result = plain(generateDifferences(filepath1, filepath2));
