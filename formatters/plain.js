@@ -23,13 +23,15 @@ const plain = (value) => {
         if (Object.prototype.hasOwnProperty.call(node, keyWithMinus)
          && Object.prototype.hasOwnProperty.call(node, keyWithPlus)
          && !_.isObject(node[key])
-         && (key === keyWithMinus)) {
+         && (key === keyWithMinus)
+         && !_.isObject(node[keyWithPlus])) {
           result += `Property '${currentObj.join('.')}.${keyWithoutSigns}' was updated. From ${normalizeQuotes(node[keyWithMinus])} to ${normalizeQuotes(node[keyWithPlus])}\n`;
         }
         // апдейт для элемента, который стал объектом
         if (Object.prototype.hasOwnProperty.call(node, keyWithMinus)
          && Object.prototype.hasOwnProperty.call(node, keyWithPlus)
-         && _.isObject(node[keyWithPlus])) {
+         && _.isObject(node[keyWithPlus])
+         && (key === keyWithMinus)) {
           result += `Property '${currentObj.join('.')}.${keyWithoutSigns}' was updated. From ${normalizeQuotes(node[keyWithMinus])} to [complex value]'\n`;
         }
         // апдейт для элемента, который был объектом
