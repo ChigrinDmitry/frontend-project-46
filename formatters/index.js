@@ -18,5 +18,3 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
 };
 
 export default genDiff;
-
-console.log(generateDifferences('/Users/dmitrychigrin/Desktop/test-data-1/__fixtures__/file1.yml', '/Users/dmitrychigrin/Desktop/test-data-1/__fixtures__/file2.yml'));
